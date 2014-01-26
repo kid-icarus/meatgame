@@ -13,7 +13,7 @@
       interval = interval !== undefined ? interval : 0.1; // In seconds
 
       var pendingFrames = numFrames;
-      var ag = new Animated_GIF({ workerPath: 'javascripts/lib/animated-gif/dist/Animated_GIF.worker.min.js' });
+      var ag = new Animated_GIF({workerPath: '/lib/Animated_GIF.worker.min.js'});
       ag.setSize(canvas.width, canvas.height);
       ag.setDelay(interval);
 
@@ -24,7 +24,7 @@
         pendingFrames--;
 
         // Call back with an r value indicating how far along we are in capture
-        progressCallback((numFrames - pendingFrames) / numFrames);
+        // progressCallback((numFrames - pendingFrames) / numFrames);
 
         if(pendingFrames > 0) {
           setTimeout(captureFrame, interval * 1000); // timeouts are in milliseconds

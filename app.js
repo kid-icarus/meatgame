@@ -34,6 +34,10 @@ io.sockets.on('connection', function (socket) {
   socket.on('up', function () {
     if (model.players[id].y > 1) model.players[id].y -= 1;
   });
+
+  socket.on('enter', function (picture) {
+    model.players[id].picture = picture;
+  });
 });
 
 var resolvePath = require('./lib/resolve-path');

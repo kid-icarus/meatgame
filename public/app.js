@@ -13,6 +13,14 @@ var socket = io.connect();
 var dirty = false;
 var data = {players: {}};
 
+var getScreenshot = function (callback, numFrames, interval, progressCallback) {
+  if (videoShooter) {                                                         
+    videoShooter.getShot(callback, numFrames, interval, progressCallback);    
+  } else {                                                                    
+    callback('');                                                             
+  }                                                                           
+}; 
+
 var gumHelper = GumHelper;
 gumHelper.startVideoStreaming(function callback(err, stream, videoElement) {
   if (err) {
